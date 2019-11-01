@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace PariAPI.Models
+namespace ParksAPI.Models
 {
     public class Trail
     {   
