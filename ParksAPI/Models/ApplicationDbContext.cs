@@ -9,13 +9,14 @@ namespace ParksAPI.Models
     public class ApplicationDbContext : DbContext
     {
 
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-        {
-        }
 
-        public DbSet<Park> Parks { get; set; }
-        public DbSet<Trail> Trails { get; set; }
-        public DbSet<Activity> Activities { get; set; }
+        public virtual DbSet<Park> Parks { get; set; }
+        public virtual DbSet<Trail> Trails { get; set; }
+        public virtual DbSet<Activity> Activities { get; set; }
+
+        public dbSet<ParkActivity> ParkActivities {get; set;}
+
+        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
