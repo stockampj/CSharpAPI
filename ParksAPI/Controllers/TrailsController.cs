@@ -23,7 +23,7 @@ namespace ParksAPI.Controllers
         /// You may enter a String with a Park ID or a length minimum to filter your searches.
         /// </summary>
         [HttpGet]
-        public ActionResult<IEnumerable<Trail>> Get(string parkId, string lengthMin, string lengthMax, string trailId)
+        public ActionResult<IEnumerable<Trail>> Get(string parkId, string lengthMin, string lengthMax, string challengeMin, string challengeMax, string trailId)
         {
             var query = _db.Trails.AsQueryable();
 
@@ -45,7 +45,21 @@ namespace ParksAPI.Controllers
             {
             int lengthMaxInt = Int32.Parse(lengthMax);
             query = query
-                .Where(trail => trail.Length >= lengthMaxInt);
+                .Where(trail => trail.Length <= lengthMaxInt);
+            }
+
+            if(challengeMin != null)
+            {
+            int challengeMinInt = Int32.Parse(challengeMin);
+            query = query
+                .Where(trail => trail.ChallengeRating >= challengeMinInt);
+            }
+
+            if(challengeMax != null)
+            {
+            int challengeMaxInt = Int32.Parse(challengeMax);
+            query = query
+                .Where(trail => trail.ChallengeRating <= challengeMaxInt);
             }
 
             if( trailId != null)
