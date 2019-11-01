@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using ParksAPI.Models;
 
 namespace ParksAPI.Models
 {
@@ -64,7 +65,7 @@ namespace ParksAPI.Models
                         ChallengeRating = 1,
                         ParkId = 2
                     },
-                                        new Trail 
+                    new Trail 
                     {
                         TrailId = 4, 
                         TrailName = "Cape Trail Heights", 

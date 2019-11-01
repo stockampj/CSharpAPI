@@ -21,9 +21,10 @@ namespace ParksAPI.Controllers
 
 
         [HttpGet]
-        public ActionResult<IEnumerable<Park>> Get(string parkName, string parkId)
+        public ActionResult<IEnumerable<Park>> Get(string parkName, string parkId, bool parkActivity)
         {
             var query = _db.Parks.AsQueryable();
+
 
             if(parkName != null)
             {
@@ -40,6 +41,13 @@ namespace ParksAPI.Controllers
                 .Where(entry => entry.ParkId == parkIdInt);
             }
 
+            if (parkActivity == true)
+            {
+              query = query
+                .Include(park => park.Activities)
+                .ThenInclude(join => join.Activity);
+            }
+            
             return query.ToList();
         }
 
@@ -51,6 +59,7 @@ namespace ParksAPI.Controllers
             _db.SaveChanges();
             
         }
+
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] Park park)
         {
@@ -58,6 +67,7 @@ namespace ParksAPI.Controllers
             _db.Entry(park).State = EntityState.Modified;
             _db.SaveChanges();
         }
+
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
