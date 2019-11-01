@@ -4,7 +4,7 @@ using System.Text;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace ProjectAPI.Models
+namespace ParksAPI.Models
 {
     public class ApplicationDbContext : DbContext
     {
@@ -13,15 +13,16 @@ namespace ProjectAPI.Models
         {
         }
 
-        public DbSet<THING> THINGS { get; set; }
-
+        public DbSet<Park> Parks { get; set; }
+        public DbSet<Trail> Trails { get; set; }
+        public DbSet<Activity> Activities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<THING>()
-                .HasData(
-                    new THING {THINGId = 1},
-                );
+            // builder.Entity<THING>()
+            //     .HasData(
+            //         new THING {THINGId = 1},
+            //     );
 
         }
     }

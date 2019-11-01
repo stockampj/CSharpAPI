@@ -11,7 +11,7 @@ using System.Reflection;
 using System.IO;
 
 
-namespace ProjectAPI
+namespace ParksAPI
 {
     public class Startup
     {
@@ -31,7 +31,7 @@ namespace ProjectAPI
 
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ProjectAPI", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ParksAPI", Version = "v1" });
             });
 
         }
@@ -50,7 +50,7 @@ namespace ProjectAPI
             app.UseSwagger();
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ProjectAPI");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "ParksAPI");
                 c.RoutePrefix = string.Empty;
             });
             app.UseMvc();
