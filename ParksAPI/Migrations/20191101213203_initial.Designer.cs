@@ -8,7 +8,7 @@ using ParksAPI.Models;
 namespace ProjectAPI.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20191101162854_initial")]
+    [Migration("20191101213203_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -16,6 +16,18 @@ namespace ProjectAPI.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "2.2.6-servicing-10079");
+
+            modelBuilder.Entity("ParksAPI.Models.Activity", b =>
+                {
+                    b.Property<int>("ActivityId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("ActivityName");
+
+                    b.HasKey("ActivityId");
+
+                    b.ToTable("Activities");
+                });
 
             modelBuilder.Entity("ParksAPI.Models.Park", b =>
                 {
@@ -47,6 +59,24 @@ namespace ProjectAPI.Migrations
                             Location = "45.36682,-123.962148",
                             ParkName = "Cape Lookout State Park"
                         });
+                });
+
+            modelBuilder.Entity("ParksAPI.Models.ParkActivity", b =>
+                {
+                    b.Property<int>("ParkActivityId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("ActivityId");
+
+                    b.Property<int>("ParkId");
+
+                    b.HasKey("ParkActivityId");
+
+                    b.HasIndex("ActivityId");
+
+                    b.HasIndex("ParkId");
+
+                    b.ToTable("ParkActivities");
                 });
 
             modelBuilder.Entity("ParksAPI.Models.Trail", b =>
@@ -101,6 +131,19 @@ namespace ProjectAPI.Migrations
                             ParkId = 2,
                             TrailName = "Cape Trail Heights"
                         });
+                });
+
+            modelBuilder.Entity("ParksAPI.Models.ParkActivity", b =>
+                {
+                    b.HasOne("ParksAPI.Models.Activity", "Activity")
+                        .WithMany("Parks")
+                        .HasForeignKey("ActivityId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("ParksAPI.Models.Park", "Park")
+                        .WithMany("Activities")
+                        .HasForeignKey("ParkId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("ParksAPI.Models.Trail", b =>

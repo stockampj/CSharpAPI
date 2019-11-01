@@ -12,9 +12,9 @@ namespace ParksAPI.Models
 
         public virtual DbSet<Park> Parks { get; set; }
         public virtual DbSet<Trail> Trails { get; set; }
-        // public virtual DbSet<Activity> Activities { get; set; }
+        public virtual DbSet<Activity> Activities { get; set; }
 
-        // public dbSet<ParkActivity> ParkActivities {get; set;}
+        public DbSet<ParkActivity> ParkActivities {get; set;}
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
