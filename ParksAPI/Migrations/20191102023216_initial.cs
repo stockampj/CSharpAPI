@@ -82,36 +82,6 @@ namespace ProjectAPI.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.InsertData(
-                table: "Parks",
-                columns: new[] { "ParkId", "Description", "Location", "ParkName" },
-                values: new object[] { 1, "The Molalla River State Park is located in U.S. state of Oregon. It is a few miles north of Canby, and half a mile from the Canby Ferry. The park is south of the Willamette River and east of the Molalla River, at the confluence of the Pudding, Molalla and Willamette rivers.", "Canby, OR 97013", "Molalla River State Park" });
-
-            migrationBuilder.InsertData(
-                table: "Parks",
-                columns: new[] { "ParkId", "Description", "Location", "ParkName" },
-                values: new object[] { 2, "A popular campground and day-use area, Cape Lookout is located on a sand spit between Netarts Bay and the ocean, giving you a terrific view of the ocean with convenient access to the beach. Note: The beach at Cape Lookout is protected by a 50' wide cobble-sized stone revetment. The revetment helps prevent erosion and stabilizes the man-made dune that protects the campground. Visitors that wish to access the beach must walk through the revetment. Please be careful when on the cobble stones, as they can be unstable.", "45.36682,-123.962148", "Cape Lookout State Park" });
-
-            migrationBuilder.InsertData(
-                table: "Trails",
-                columns: new[] { "TrailId", "ChallengeRating", "Length", "ParkId", "TrailName" },
-                values: new object[] { 1, 2, 5.0, 1, "Easy River Run" });
-
-            migrationBuilder.InsertData(
-                table: "Trails",
-                columns: new[] { "TrailId", "ChallengeRating", "Length", "ParkId", "TrailName" },
-                values: new object[] { 2, 4, 2.3999999999999999, 2, "Cape Lookout Trail" });
-
-            migrationBuilder.InsertData(
-                table: "Trails",
-                columns: new[] { "TrailId", "ChallengeRating", "Length", "ParkId", "TrailName" },
-                values: new object[] { 3, 1, 1.7, 2, "The Nature Trail" });
-
-            migrationBuilder.InsertData(
-                table: "Trails",
-                columns: new[] { "TrailId", "ChallengeRating", "Length", "ParkId", "TrailName" },
-                values: new object[] { 4, 5, 17.0, 2, "Cape Trail Heights" });
-
             migrationBuilder.CreateIndex(
                 name: "IX_ParkActivities_ActivityId",
                 table: "ParkActivities",

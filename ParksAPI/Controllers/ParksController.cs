@@ -19,13 +19,11 @@ namespace ParksAPI.Controllers
             _db = db;
         }
 
-
         [HttpGet]
         public ActionResult<IEnumerable<Park>> Get(string parkName, string parkId, bool parkActivity)
         {
             var query = _db.Parks.AsQueryable();
-
-
+            
             if(parkName != null)
             {
               query = query
@@ -41,7 +39,7 @@ namespace ParksAPI.Controllers
                 .Where(entry => entry.ParkId == parkIdInt);
             }
 
-            if (parkActivity == true)
+            if (parkActivity)
             {
               query = query
                 .Include(park => park.Activities)

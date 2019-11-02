@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+
 namespace ParksAPI.Models
 {
     public class Park 
@@ -14,6 +15,6 @@ namespace ParksAPI.Models
         public string Description {get; set;}
         public string Location {get; set;}
         public ICollection<Trail> Trails {get;}
-        public virtual ICollection<ParkActivity> Activities {get;}
+        public virtual ICollection<ParkActivity> Activities {get; set;}
     }
 }

@@ -41,22 +41,6 @@ namespace ProjectAPI.Migrations
                     b.HasKey("ParkId");
 
                     b.ToTable("Parks");
-
-                    b.HasData(
-                        new
-                        {
-                            ParkId = 1,
-                            Description = "The Molalla River State Park is located in U.S. state of Oregon. It is a few miles north of Canby, and half a mile from the Canby Ferry. The park is south of the Willamette River and east of the Molalla River, at the confluence of the Pudding, Molalla and Willamette rivers.",
-                            Location = "Canby, OR 97013",
-                            ParkName = "Molalla River State Park"
-                        },
-                        new
-                        {
-                            ParkId = 2,
-                            Description = "A popular campground and day-use area, Cape Lookout is located on a sand spit between Netarts Bay and the ocean, giving you a terrific view of the ocean with convenient access to the beach. Note: The beach at Cape Lookout is protected by a 50' wide cobble-sized stone revetment. The revetment helps prevent erosion and stabilizes the man-made dune that protects the campground. Visitors that wish to access the beach must walk through the revetment. Please be careful when on the cobble stones, as they can be unstable.",
-                            Location = "45.36682,-123.962148",
-                            ParkName = "Cape Lookout State Park"
-                        });
                 });
 
             modelBuilder.Entity("ParksAPI.Models.ParkActivity", b =>
@@ -95,40 +79,6 @@ namespace ProjectAPI.Migrations
                     b.HasIndex("ParkId");
 
                     b.ToTable("Trails");
-
-                    b.HasData(
-                        new
-                        {
-                            TrailId = 1,
-                            ChallengeRating = 2,
-                            Length = 5.0,
-                            ParkId = 1,
-                            TrailName = "Easy River Run"
-                        },
-                        new
-                        {
-                            TrailId = 2,
-                            ChallengeRating = 4,
-                            Length = 2.3999999999999999,
-                            ParkId = 2,
-                            TrailName = "Cape Lookout Trail"
-                        },
-                        new
-                        {
-                            TrailId = 3,
-                            ChallengeRating = 1,
-                            Length = 1.7,
-                            ParkId = 2,
-                            TrailName = "The Nature Trail"
-                        },
-                        new
-                        {
-                            TrailId = 4,
-                            ChallengeRating = 5,
-                            Length = 17.0,
-                            ParkId = 2,
-                            TrailName = "Cape Trail Heights"
-                        });
                 });
 
             modelBuilder.Entity("ParksAPI.Models.ParkActivity", b =>

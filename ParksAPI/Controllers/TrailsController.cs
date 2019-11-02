@@ -78,7 +78,7 @@ namespace ParksAPI.Controllers
 
             return query.ToList();
         }
-        // POST api/animals
+        
         [HttpPost]
         public void Post([FromBody] Trail trail)
         {

@@ -7,7 +7,7 @@ namespace ParksAPI.Models
     public int ParkActivityId {get; set;}
     public int ParkId {get; set;}
     public int ActivityId {get; set;}
-    public Park Park {get; set;}
+    // public Park Park {get; set;}
     public Activity Activity {get; set;}
   }
 }
