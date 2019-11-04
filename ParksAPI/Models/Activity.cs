@@ -13,5 +13,6 @@ namespace ParksAPI.Models
     public string ActivityName { get; set; }
     // public virtual ICollection<ParkActivity> Parks {get; set;}
   }
+
 }
 

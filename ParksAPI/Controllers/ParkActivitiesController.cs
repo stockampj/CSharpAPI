@@ -19,33 +19,6 @@ namespace ParksAPI.Controllers
             _db = db;
         }
 
-        // [HttpGet]
-        // public ActionResult<IEnumerable<ParkActivity>> Get(string parkId, string activityId)
-        // {
-        //     var query = _db.ParkActivities.AsQueryable();
-
-        //     if( parkId != null)
-        //     {
-        //     int parkIdint = Int32.Parse(parkId);
-        //     query = query
-        //         .Include(pA => pA.Activity)
-        //         .Where(p => p.ParkId == parkIdint);
-        //     }
-
-        //     if( activityId != null)
-        //     {
-        //     Console.WriteLine("HHHHHHHHHHHHEEEEEEEEEEEEELLLLLLLLLLLLLLLLOOOOOOOOOOOOOOOOOOOOO");
-
-        //     int activityIdInt = Int32.Parse(activityId);
-
-        //     query = query
-        //         // .Include(pA => pA.Park)
-        //         .Where(p => p.ActivityId == activityIdInt);
-        //     }
-
-        //     return query.ToList();
-        // }
-
         [HttpPost]
         public void Post([FromBody] ParkActivity parkActivity)
         {
